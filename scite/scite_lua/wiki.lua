@@ -9,6 +9,7 @@ scite_Command 'Open Doc|open_doc|F1'
 scite_Command 'Create Doc|create_doc|Ctrl+F1'
 scite_Command 'Create Encrypt Doc|create_sec_doc|Shift+Ctrl+F1'
 scite_Command 'Open Home|open_home|F2'
+scite_Command 'Explore Folder|explore_folder|Ctrl+F2'
 scite_Command 'Execute Command|run_cmd|Ctrl+E'
 scite_Command 'Execute Lua File|run_lua|Shift+Ctrl+E'
 
@@ -100,3 +101,8 @@ function open_doc()
 	print(filename.." not found!")
 end
 
+function explore_folder()
+		 local file_name = props['FilePath']
+		 local path = dirname(file_name)
+		 os.execute("start explorer "..path)
+end
