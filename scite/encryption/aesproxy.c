@@ -5,11 +5,11 @@ aes_context ctx;
 
 
 //len should be 128/8=16,192/8=? or 256/8=32
-void aesp_set_key(char* key, int len){
+void aesp_set_key(uint8* key, int len){
 		aes_set_key( &ctx, key, len*8 );
 }
 
-void aesp_encrypt(char* buf, int len, char* out, int* plen){
+void aesp_encrypt(uint8* buf, int len, uint8* out, int* plen){
 		//enc 128bits  == 16bytes each time
 		int i;
 		*plen =0;
@@ -19,7 +19,7 @@ void aesp_encrypt(char* buf, int len, char* out, int* plen){
 		}		
 }
 
-void aesp_decrypt(char* buf, int len, char* out,int* plen){
+void aesp_decrypt(uint8* buf, int len, uint8* out,int* plen){
 		//enc 128bits  == 16bytes each time
 		int i;
 		*plen =0;
